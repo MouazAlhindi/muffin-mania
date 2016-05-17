@@ -1,6 +1,6 @@
 import javax.swing.JFrame;
 import java.util.*;
-
+//hi
 public class AdvClicker
 {
    private static Display window;
