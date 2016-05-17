@@ -6,7 +6,7 @@ import java.util.*;
 
 public class Display extends JFrame
 {
-	private static double muffinCount=100000000;
+	private static double muffinCount=0;
    private static int mpc = 1;
    private double mps = 0;
    private static int btuCount = 0;
@@ -239,7 +239,7 @@ public class Display extends JFrame
             
             if(response==JOptionPane.YES_OPTION)
             {
-               muffinCount=100000000;
+               muffinCount=0;
                countDisplay.setText("Muffin Count: "+muffinCount);
                mps = 0;
                MPS.setText("Muffins Per Second: "+mps);
