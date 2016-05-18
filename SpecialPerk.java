@@ -10,6 +10,7 @@ public class SpecialPerk extends JFrame
    private JButton b1;
    private JButton b2;
    private JButton b3;
+   private JButton b4;
       
    public SpecialPerk(Display display)
    {
@@ -49,6 +50,24 @@ public class SpecialPerk extends JFrame
             frame2.setVisible(false);
          }
       });
+      
+      b4 = new JButton();
+      b4.setOpaque(false);
+      b4.setContentAreaFilled(false);
+      b4.setBorderPainted(false);
+      panel2.add(b4);
+      
+      b4.addActionListener(new ActionListener() {
+         public void actionPerformed(ActionEvent e)
+         {
+            Display.setMufCount();
+            Display.setMPC();
+            Display.reduceCosts();
+            frame2.setVisible(false);
+         }
+      });
+      
+      
       
       frame2.add(panel2);
       frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
