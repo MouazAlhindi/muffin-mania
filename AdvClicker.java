@@ -1,6 +1,6 @@
 import javax.swing.JFrame;
 import java.util.*;
-//hello
+
 public class AdvClicker
 {
    private static Display window;
@@ -20,7 +20,7 @@ public class AdvClicker
    
    public static void main(String[] args)
 	{      
-		window = new Display(window);     
-      timeKeeper();
+		window = new Display(window);     //creates new window
+      timeKeeper();							 //starts timer
 	}
 }

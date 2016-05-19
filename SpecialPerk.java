@@ -21,8 +21,8 @@ public class SpecialPerk extends JFrame
       b1 = new JButton("Start with 100 more muffins!");
       panel2.add(b1);
       
-      b1.addActionListener(new ActionListener() {
-         public void actionPerformed(ActionEvent e)
+      b1.addActionListener(new ActionListener() {			//creates button and when clicked adds 100
+         public void actionPerformed(ActionEvent e)		//muffins to muffin count
          {
             Display.setMufCount();
             frame2.setVisible(false);
@@ -32,7 +32,7 @@ public class SpecialPerk extends JFrame
       b2 = new JButton("Get 3 more muffins per click!");
       panel2.add(b2);
       
-      b2.addActionListener(new ActionListener() {
+      b2.addActionListener(new ActionListener() {			//adds button and when clicked increse muffins per click
          public void actionPerformed(ActionEvent e)
          {
             Display.setMPC();
@@ -43,7 +43,7 @@ public class SpecialPerk extends JFrame
       b3 = new JButton("The cost of perks are reduced!");
       panel2.add(b3);
       
-      b3.addActionListener(new ActionListener() {
+      b3.addActionListener(new ActionListener() {		//adds button and when clicked reduces cost of perks by 25%
          public void actionPerformed(ActionEvent e)
          {
             Display.reduceCosts();
