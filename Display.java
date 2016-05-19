@@ -17,6 +17,7 @@ public class Display extends JFrame
    private JLabel btuDisplay;					//
    JFrame frame = new JFrame();				//creates frame and panel for window
    JPanel panel = new JPanel();				//
+   private static int plus100 = 0;
    
 	/*Following block of code creates 8 Perk objects 
 	and creates 8 buttons with respective Perks properties*/
@@ -40,24 +41,27 @@ public class Display extends JFrame
 	/*Lists of original data for mutiple uses (will see later)*/
    private static Perk[] perks = {perkOne,perkTwo,perkThree,perkFour,perkFive,perkSix,perkSeven,perkEight};
    private static JButton[] buttons = {perk1,perk2,perk3,perk4,perk5,perk6,perk7,perk8};
-   private double[] mpses = {0.2, 1.4, 5, 10, 50, 500, 1000, 5000};
+   private double[] mpses = {0.4, 2.8, 10, 20, 100, 1000, 2000, 10000};
    private int[] costs = {10,100,1000,5000,10000,50000, 100000, 1000000};
    
 	//CONSTRUCTOR
 	public Display(final Display display)
 	{
-		super("Muffin Mania");
+		frame.setTitle("Muffin Mania");
 		panel.setLayout(new BoxLayout(panel, BoxLayout.PAGE_AXIS));//Creates title, layout, and background
 		panel.setBackground(new Color(238,201,0));
 		
 		countDisplay = new JLabel("Muffin Count: "+muffinCount);//Displays the Number of Muffins 
+      countDisplay.setAlignmentX(Component.CENTER_ALIGNMENT);//centers display
 		panel.add(countDisplay);//adds counter to panel
       
       MPS = new JLabel("Muffins Per Second: "+mps);//Displays amount of Muffins per Second
+      MPS.setAlignmentX(Component.CENTER_ALIGNMENT);//centers display
 		panel.add(MPS); //adds counter to panel
 		
 		Icon muffinPic = new ImageIcon(getClass().getResource("muffin.png"));//Adds Pic to button
 		muffin = new JButton(muffinPic);//creates JButton with picture
+      muffin.setAlignmentX(Component.CENTER_ALIGNMENT);//centers display
 		panel.add(muffin);//adds Muffin Button to panel
       muffin.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e)//When clicked increments muffin Count and updates display of muffins
@@ -68,7 +72,7 @@ public class Display extends JFrame
       });
       
       setDisabled();
-      
+      perk1.setAlignmentX(Component.CENTER_ALIGNMENT);//centers display
       panel.add(perk1);      
       perk1.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e)
@@ -79,7 +83,7 @@ public class Display extends JFrame
             countDisplay.setText("Muffin Count: "+muffinCount);	//adds ActionListener to Button
             perkOne.update();													//When clicked
             perk1.setText(perkOne.toString());							//Subtracts cost from Muffin Count
-            mps+=0.2;															//Updates Muffin Count
+            mps+=mpses[0];															//Updates Muffin Count
             MPS.setText("Muffins Per Second: "+mps);					//Updates Cost and Quantity of Perk on button
             perk2.setEnabled(true);											//Increases and Updates Muffins per second
          }																			//Makes next Perk clickable
@@ -88,8 +92,8 @@ public class Display extends JFrame
          }
          });
 
-      panel.add(perk2);
-      
+      perk2.setAlignmentX(Component.CENTER_ALIGNMENT);//centers display
+      panel.add(perk2);      
       perk2.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e)
          {
@@ -99,7 +103,7 @@ public class Display extends JFrame
             countDisplay.setText("Muffin Count: "+muffinCount);	//Refer to perk1 code
             perkTwo.update();
             perk2.setText(perkTwo.toString());
-            mps+=1.5;
+            mps+=mpses[1];
             MPS.setText("Muffins Per Second: "+mps);
             perk3.setEnabled(true);
          }
@@ -108,8 +112,8 @@ public class Display extends JFrame
          }
          });
       
-      panel.add(perk3);
-      
+      perk3.setAlignmentX(Component.CENTER_ALIGNMENT);//centers display
+      panel.add(perk3);      
       perk3.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e)
          {
@@ -119,7 +123,7 @@ public class Display extends JFrame
             countDisplay.setText("Muffin Count: "+muffinCount);	//Refer to perk1 code
             perkThree.update();
             perk3.setText(perkThree.toString());
-            mps+=5;
+            mps+=mpses[2];
             MPS.setText("Muffins Per Second: "+mps);
             perk4.setEnabled(true);
          }
@@ -128,8 +132,8 @@ public class Display extends JFrame
          }
          });
       
-      panel.add(perk4);
-      
+      perk4.setAlignmentX(Component.CENTER_ALIGNMENT);//centers display
+      panel.add(perk4);      
       perk4.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e)
          {
@@ -139,7 +143,7 @@ public class Display extends JFrame
             countDisplay.setText("Muffin Count: "+muffinCount);	//Refer to perk1 code
             perkFour.update();
             perk4.setText(perkFour.toString());
-            mps+=10;
+            mps+=mpses[3];
             MPS.setText("Muffins Per Second: "+mps);
             perk5.setEnabled(true);
          }
@@ -148,8 +152,8 @@ public class Display extends JFrame
          }
          });
       
-      panel.add(perk5);
-      
+      perk5.setAlignmentX(Component.CENTER_ALIGNMENT);//centers display
+      panel.add(perk5);      
       perk5.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e)
          {
@@ -159,7 +163,7 @@ public class Display extends JFrame
             countDisplay.setText("Muffin Count: "+muffinCount);	//Refer to perk1 code
             perkFive.update();
             perk5.setText(perkFive.toString());
-            mps+=50;
+            mps+=mpses[4];
             MPS.setText("Muffins Per Second: "+mps);
             perk6.setEnabled(true);
          }
@@ -168,18 +172,18 @@ public class Display extends JFrame
          }
          });
       
-      panel.add(perk6);
-      
+      perk6.setAlignmentX(Component.CENTER_ALIGNMENT);//centers display
+      panel.add(perk6);      
       perk6.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e)
          {
          if(muffinCount>= perkSix.getCost())
          {
-            muffinCount-=perkThree.getCost();
+            muffinCount-=perkSix.getCost();
             countDisplay.setText("Muffin Count: "+muffinCount);	//Refer to perk1 code
             perkSix.update();
             perk6.setText(perkSix.toString());
-            mps+=500;
+            mps+=mpses[5];
             MPS.setText("Muffins Per Second: "+mps);
             perk7.setEnabled(true);
          }
@@ -188,8 +192,8 @@ public class Display extends JFrame
          }
          });
       
-      panel.add(perk7);
-      
+      perk7.setAlignmentX(Component.CENTER_ALIGNMENT);//centers display
+      panel.add(perk7);      
       perk7.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e)
          {
@@ -199,7 +203,7 @@ public class Display extends JFrame
             countDisplay.setText("Muffin Count: "+muffinCount);	//Refer to perk1 code
             perkSeven.update();
             perk7.setText(perkSeven.toString());
-            mps+=1000;
+            mps+=mpses[6];
             MPS.setText("Muffins Per Second: "+mps);
             perk8.setEnabled(true);
          }
@@ -208,8 +212,8 @@ public class Display extends JFrame
          }
          });
       
-      panel.add(perk8);
-      
+      perk8.setAlignmentX(Component.CENTER_ALIGNMENT);//centers display
+      panel.add(perk8);      
       perk8.addActionListener(new ActionListener() {
          public void actionPerformed(ActionEvent e)
          {
@@ -219,7 +223,7 @@ public class Display extends JFrame
             countDisplay.setText("Muffin Count: "+muffinCount);	//Refer to perk1 code
             perkEight.update();
             perk8.setText(perkEight.toString());
-            mps+=5000;
+            mps+=mpses[7];
             MPS.setText("Muffins Per Second: "+mps);
             btu.setEnabled(true);
          }
@@ -231,6 +235,7 @@ public class Display extends JFrame
       btu = new JButton("?");	//initializes Break the Universe Variable
       btu.setEnabled(false);	//Makes it unclickable
       btu.setToolTipText("Buy The Magic Muffin to Unlock this!");//when hovered over with mouse, displays message
+      btu.setAlignmentX(Component.CENTER_ALIGNMENT);//centers display
       panel.add(btu);	//adds btu panel to button
       
       btuDisplay = new JLabel(btuCount+"");//count for btu
@@ -242,7 +247,7 @@ public class Display extends JFrame
             
             if(response==JOptionPane.YES_OPTION)
             {
-               muffinCount=0;
+               muffinCount=0;         
                countDisplay.setText("Muffin Count: "+muffinCount);	//sets and updates muffin count to 0
                mps = 0;																//resets costs and quantities of perks
                MPS.setText("Muffins Per Second: "+mps);					//Increases and updates btu count
@@ -294,7 +299,8 @@ public class Display extends JFrame
 	//Adds 100 to starting muffin count
    public static void setMufCount()
    {
-      muffinCount+=100;
+      plus100++;
+      muffinCount+=(plus100*100);
       countDisplay.setText("Muffin Count: "+muffinCount);
    }
    
